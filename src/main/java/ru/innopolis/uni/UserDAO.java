@@ -20,6 +20,11 @@ public class UserDAO {
         if (map.containsKey(username) && map.get(username).getPassword().equals(pw)) {
             bean.setValid(true);
         } else bean.setValid(false);
+        UserBean userBean = map.get(username);
+
+        bean.setFirstName(userBean.getFirstName());
+        bean.setLastName(userBean.getLastName());
+        bean.setEmail(userBean.getEmail());
 
         return bean;
     }
@@ -34,9 +39,5 @@ public class UserDAO {
             result = false;
         }
         return result;
-    }
-
-    public static Map<String, UserBean> getMap() {
-        return map;
     }
 }
