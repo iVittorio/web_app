@@ -1,7 +1,5 @@
 package ru.innopolis.uni;
 
-import ru.innopolis.uni.UserBean;
-import ru.innopolis.uni.UserDAO;
 import ru.innopolis.uni.jdbc.JDBCConnection;
 
 import javax.servlet.ServletException;
@@ -11,7 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Enumeration;
 
 /**
  * Created by i.viktor on 23/11/2016.

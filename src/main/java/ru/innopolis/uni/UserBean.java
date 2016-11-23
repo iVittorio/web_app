@@ -6,7 +6,7 @@ package ru.innopolis.uni;
 public class UserBean {
     private final String login;
     private final String name;
-    private final String family;
+    private final String lastName;
     private final String email;
     private final String role;
 
@@ -18,8 +18,8 @@ public class UserBean {
         return name;
     }
 
-    public String getFamily() {
-        return family;
+    public String getLastName() {
+        return lastName;
     }
 
     public String getEmail() {
@@ -33,7 +33,7 @@ public class UserBean {
     private UserBean(Builder builder) {
         this.login = builder.login;
         this.name = builder.firstName;
-        this.family = builder.lastName;
+        this.lastName = builder.lastName;
         this.email = builder.email;
         this.role = builder.role;
     }
@@ -79,7 +79,7 @@ public class UserBean {
         return "UserBean{" +
                 "login='" + login + '\'' +
                 ", name='" + name + '\'' +
-                ", family='" + family + '\'' +
+                ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", role='" + role + '\'' +
                 '}';

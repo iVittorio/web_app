@@ -10,7 +10,7 @@
         login = userBean.getLogin();
         email = userBean.getEmail();
         name = userBean.getName();
-        family = userBean.getFamily();
+        family = userBean.getLastName();
     } else response.sendRedirect("index.jsp");
 %>
 <html>

@@ -1,6 +1,5 @@
 package ru.innopolis.uni;
 
-import org.apache.commons.codec.digest.DigestUtils;
 import ru.innopolis.uni.jdbc.JDBCConnection;
 
 import javax.servlet.ServletException;
@@ -20,8 +19,6 @@ public class LoginServlet extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
 
-
-
         try {
             UserDAO dao = new UserDAO(JDBCConnection.getConnection());
 
@@ -30,7 +27,9 @@ public class LoginServlet extends HttpServlet {
             if (bean != null) {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("bean", bean);
-                response.sendRedirect("edit.jsp");
+                if ("teacher".equals(bean.getRole()))
+                    response.sendRedirect("teacher.jsp");
+                else response.sendRedirect("student.jsp");
             } else response.sendRedirect("invalidLogin.jsp");
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();

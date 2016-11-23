@@ -23,6 +23,7 @@
         <servlet-class>ru.innopolis.uni.EditServlet</servlet-class>
     </servlet>
 
+
     <servlet-mapping>
         <servlet-name>RegServlet</servlet-name>
         <url-pattern>/RegServlet</url-pattern>

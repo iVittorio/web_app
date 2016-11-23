@@ -31,12 +31,18 @@ public class UserDAO {
                 String passFromDB = resultSet.getString("password");
 
 
-                if (login.equals(nameFromDB) && md5Apache(password).equals(passFromDB)) {
+                if (login.equals(nameFromDB) && DigestUtils.md5Hex(password).equals(passFromDB)) {
                     result = new UserBean.Builder(login).firstName(resultSet.getString("name")).email(resultSet.getString("email")).lastName(resultSet.getString("family")).role(resultSet.getString("role")).build();
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return result;
     }
@@ -46,10 +52,10 @@ public class UserDAO {
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(PREPARED_INSERT_QUERY);
             preparedStatement.setString(1, bean.getLogin());
-            preparedStatement.setString(2, md5Apache(password));
+            preparedStatement.setString(2, DigestUtils.md5Hex(password));
             preparedStatement.setString(3, bean.getEmail());
             preparedStatement.setString(4, bean.getName());
-            preparedStatement.setString(5, bean.getFamily());
+            preparedStatement.setString(5, bean.getLastName());
             preparedStatement.setString(6, bean.getRole());
             int i = preparedStatement.executeUpdate();
             if (i != 0) {
@@ -57,6 +63,12 @@ public class UserDAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return result;
     }
@@ -67,24 +79,22 @@ public class UserDAO {
             PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_QUERY);
             preparedStatement.setString(1, bean.getEmail());
             preparedStatement.setString(2, bean.getName());
-            preparedStatement.setString(3, bean.getFamily());
+            preparedStatement.setString(3, bean.getLastName());
             preparedStatement.setString(4, bean.getRole());
             preparedStatement.setString(5, bean.getLogin());
             int i = preparedStatement.executeUpdate();
-            System.out.println("DEBUG: " + bean);
-            System.out.println("DEBUG: " + i);
             if (i != 0) {
-                System.out.println("DEBUG: " + i);
                 result = true;
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
         return result;
-    }
-
-    public static String md5Apache(String st) {
-        String md5Hex = DigestUtils.md5Hex(st);
-        return md5Hex;
     }
 }
