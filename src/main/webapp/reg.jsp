@@ -6,7 +6,7 @@
     <title>Registration</title>
 </head>
 <body>
-<form action="RegServlet" method="get">
+<form action="RegServlet" method="post">
     <center>
         <table border="1" width="30%" cellpadding="5">
             <thead>
@@ -29,7 +29,7 @@
             </tr>
             <tr>
                 <td>User Name</td>
-                <td><input type="text" name="username" value=""/></td>
+                <td><input type="text" name="login" value=""/></td>
             </tr>
             <tr>
                 <td>Password</td>

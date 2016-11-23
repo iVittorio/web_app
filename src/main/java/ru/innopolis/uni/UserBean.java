@@ -4,70 +4,84 @@ package ru.innopolis.uni;
  * Created by i.viktor on 20/11/2016.
  */
 public class UserBean {
-    private String username;
-    private String password;
-    private String firstName;
-    private String lastName;
-    private String email;
-    private boolean valid;
+    private final String login;
+    private final String name;
+    private final String family;
+    private final String email;
+    private final String role;
 
-    public UserBean() {
+    public String getLogin() {
+        return login;
     }
 
-    public UserBean(String username, String password, String firstName, String lastName, String email) {
-        this.username = username;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
+    public String getName() {
+        return name;
+    }
+
+    public String getFamily() {
+        return family;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getRole() {
+        return role;
     }
 
-    public String getUsername() {
-        return username;
+    private UserBean(Builder builder) {
+        this.login = builder.login;
+        this.name = builder.firstName;
+        this.family = builder.lastName;
+        this.email = builder.email;
+        this.role = builder.role;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public static class Builder {
+        private final String login;
+        private String firstName = "";
+        private String lastName = "";
+        private String email = "";
+        private String role = "student";
+
+        public Builder(String login) {
+            this.login = login;
+        }
+
+        public Builder firstName(String firstName) {
+            this.firstName = firstName;
+            return this;
+        }
+
+        public Builder lastName(String lastName) {
+            this.lastName = lastName;
+            return this;
+        }
+
+        public Builder email(String email) {
+            this.email = email;
+            return this;
+        }
+
+        public Builder role(String role) {
+            this.role = role;
+            return this;
+        }
+
+        public UserBean build() {
+            return new UserBean(this);
+        }
     }
 
-    public String getPassword() {
-        return password;
+    @Override
+    public String toString() {
+        return "UserBean{" +
+                "login='" + login + '\'' +
+                ", name='" + name + '\'' +
+                ", family='" + family + '\'' +
+                ", email='" + email + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public boolean isValid() {
-        return valid;
-    }
-
-    public void setValid(boolean valid) {
-        this.valid = valid;
-    }
-
 }

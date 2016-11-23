@@ -10,9 +10,7 @@
 <body>
 
 <center>
-    <% UserBean currentUser = (UserBean) session.getAttribute("session");%>
-
-    Welcome <%= currentUser.getFirstName() + " " + currentUser.getLastName()%>
+    Welcome
 </center>
 
 </body>

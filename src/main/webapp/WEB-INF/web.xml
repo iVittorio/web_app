@@ -7,13 +7,20 @@
         <servlet-name>Dispatcher</servlet-name>
         <servlet-class>ru.innopolis.uni.Dispatcher</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>LoginServlet</servlet-name>
         <servlet-class>ru.innopolis.uni.LoginServlet</servlet-class>
     </servlet>
+
     <servlet>
         <servlet-name>RegServlet</servlet-name>
         <servlet-class>ru.innopolis.uni.RegServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>EditServlet</servlet-name>
+        <servlet-class>ru.innopolis.uni.EditServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -27,5 +34,9 @@
     <servlet-mapping>
         <servlet-name>Dispatcher</servlet-name>
         <url-pattern>/</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditServlet</servlet-name>
+        <url-pattern>/EditServlet</url-pattern>
     </servlet-mapping>
 </web-app>
