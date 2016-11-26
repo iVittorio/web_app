@@ -6,9 +6,9 @@
     <title>Login Page</title>
 </head>
 <body>
-<form action="LoginServlet" method="post">
+<form action="login" method="post">
     <center>
-        <table border="1" width="30%" cellpadding="3">
+        <table border="1" width="30%">
             <thead>
             <tr>
                 <th colspan="2">Login Here</th>

@@ -6,9 +6,9 @@
     <title>Registration</title>
 </head>
 <body>
-<form action="RegServlet" method="post">
+<form action="registration" method="post">
     <center>
-        <table border="1" width="30%" cellpadding="5">
+        <table border="1" width="30%">
             <thead>
             <tr>
                 <th colspan="2">Enter Information Here</th>
@@ -16,19 +16,7 @@
             </thead>
             <tbody>
             <tr>
-                <td>First Name</td>
-                <td><input type="text" name="firstName" value=""/></td>
-            </tr>
-            <tr>
-                <td>Last Name</td>
-                <td><input type="text" name="lastName" value=""/></td>
-            </tr>
-            <tr>
-                <td>Email</td>
-                <td><input type="email" name="email" value=""/></td>
-            </tr>
-            <tr>
-                <td>User Name</td>
+                <td>Login</td>
                 <td><input type="text" name="login" value=""/></td>
             </tr>
             <tr>
@@ -36,11 +24,26 @@
                 <td><input type="password" name="password" value=""/></td>
             </tr>
             <tr>
+                <td>Full name</td>
+                <td><input type="text" name="fullName" value=""/></td>
+            </tr>
+            <tr>
+                <td>E-mail</td>
+                <td><input type="email" name="email" value=""/></td>
+            </tr>
+            <tr>
+                <td>Sex</td>
+                <td><select name="sex">
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
+                </select></td>
+            </tr>
+            <tr>
                 <td><input type="submit" value="Submit"/></td>
                 <td><input type="reset" value="Reset"/></td>
             </tr>
             <tr>
-                <td colspan="2">Already registered!! <a href="index.jsp">Login Here</a></td>
+                <td><a href="index.jsp">Login Here</a></td>
             </tr>
             </tbody>
         </table>

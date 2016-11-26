@@ -9,13 +9,13 @@
     </servlet>
 
     <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>ru.innopolis.uni.LoginServlet</servlet-class>
+        <servlet-name>Login</servlet-name>
+        <servlet-class>ru.innopolis.uni.Login</servlet-class>
     </servlet>
 
     <servlet>
-        <servlet-name>RegServlet</servlet-name>
-        <servlet-class>ru.innopolis.uni.RegServlet</servlet-class>
+        <servlet-name>Registration</servlet-name>
+        <servlet-class>ru.innopolis.uni.Registration</servlet-class>
     </servlet>
 
     <servlet>
@@ -23,14 +23,31 @@
         <servlet-class>ru.innopolis.uni.EditServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>LogoutServlet</servlet-name>
+        <servlet-class>ru.innopolis.uni.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteLection</servlet-name>
+        <servlet-class>ru.innopolis.uni.DeleteLection</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AddLection</servlet-name>
+        <servlet-class>ru.innopolis.uni.AddLection</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EditLection</servlet-name>
+        <servlet-class>ru.innopolis.uni.EditLection</servlet-class>
+    </servlet>
+
 
     <servlet-mapping>
-        <servlet-name>RegServlet</servlet-name>
-        <url-pattern>/RegServlet</url-pattern>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/registration</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/LoginServlet</url-pattern>
+        <servlet-name>Login</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Dispatcher</servlet-name>
@@ -40,4 +57,27 @@
         <servlet-name>EditServlet</servlet-name>
         <url-pattern>/EditServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutServlet</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteLection</servlet-name>
+        <url-pattern>/DeleteLection</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AddLection</servlet-name>
+        <url-pattern>/AddLection</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EditLection</servlet-name>
+        <url-pattern>/EditLection</url-pattern>
+    </servlet-mapping>
+
+    <resource-ref>
+        <description>DB Connection</description>
+        <res-ref-name>jdbc/my_database</res-ref-name> <!-- тут можно также написать jdbc/TestDB -->
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth>
+    </resource-ref>
 </web-app>

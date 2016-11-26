@@ -9,25 +9,27 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
- * Created by i.viktor on 23/11/2016.
+ * Created by i.viktor on 20/11/2016.
  */
-public class EditServlet extends HttpServlet {
+public class Registration extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        HttpSession session = req.getSession();
-        int userID = (int) session.getAttribute("UserID");
         String login = req.getParameter("login");
-        String email = req.getParameter("email");
+        String password = req.getParameter("password");
         String fullName = req.getParameter("fullName");
+        String email = req.getParameter("email");
         Sex sex = Sex.valueOf(req.getParameter("sex"));
-        User user = new User(userID, login, fullName, email, sex, Role.STUDENT);
-        UserDAO.editUser(user);
+        Role role = Role.STUDENT;
 
-        resp.sendRedirect("edit.jsp");
+        User user = new User(0, login, fullName, email, sex, role);
+
+        int loginData = UserDAO.verifyLoginData(login, password);
+
+        UserDAO.addUser(user, password);
+        resp.sendRedirect("index.jsp");
     }
 }
