@@ -74,6 +74,20 @@
         <url-pattern>/EditLection</url-pattern>
     </servlet-mapping>
 
+    <filter>
+        <filter-name>AccessFilter</filter-name>
+        <filter-class>ru.innopolis.uni.AccessFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>AccessFilter</filter-name>
+        <url-pattern>/studentlist.jsp</url-pattern>
+        <url-pattern>/editlection.jsp</url-pattern>
+        <url-pattern>/addlection.jsp</url-pattern>
+        <url-pattern>/DeleteLection</url-pattern>
+        <url-pattern>/AddLection</url-pattern>
+        <url-pattern>/EditLection</url-pattern>
+    </filter-mapping>
+
     <resource-ref>
         <description>DB Connection</description>
         <res-ref-name>jdbc/my_database</res-ref-name> <!-- тут можно также написать jdbc/TestDB -->
